@@ -1,0 +1,23 @@
+classDiagram
+    class Main{
+        +Flask app
+        +SocketIO socketio
+        +void run()
+    }
+    class AudioProcessor{
+        +PyDub audio
+        +void start_streaming()
+        +void stop_streaming()
+    }
+    class WebInterface{
+        +Bootstrap ui
+        +void update_ui()
+    }
+    class ConfigManager{
+        +dict config
+        +void load_config()
+        +void save_config()
+    }
+    Main "1" -- "1" AudioProcessor: controls
+    Main "1" -- "1" WebInterface: controls
+    Main "1" -- "1" ConfigManager: uses
